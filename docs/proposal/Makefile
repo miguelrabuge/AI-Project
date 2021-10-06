@@ -17,4 +17,4 @@ all-clean: clean
 
 clean:
 	@echo "Cleaning..."
-	@rm -f *.{aux,bbl,bcf,blg,log,xml,toc}
+	@rm -f *.{aux,bbl,bcf,blg,log,xml,toc,out}

@@ -6,8 +6,27 @@
 \addbibresource{references.bib} 
 
 \usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{csquotes}
 \usepackage[parfill]{parskip}
+
 \usepackage{url}
+\usepackage{hyperref}
+
+\hypersetup{
+  colorlinks = true,
+  linkcolor = blue,
+  filecolor = magenta,      
+  urlcolor = cyan,
+  pdftitle = {Artificial Guide Dogs - Reinforcement Learning Approach for 
+  Training Disabled People Personal Companions},
+  pdfauthor = {Miguel Rabuge, Gabriel Fernandes, Pedro Rodrigues},
+  pdfsubject = {Project Proposal},
+  pdfkeywords = {Artificial Intelligence, Machine Learning,
+  Reinforcement Learning},
+  pdfproducer = {Latex with hyperref},
+  pdfcreator = {pdflatex}
+}
 
 \title{
   \textbf{Artificial Guide Dogs} \\\vspace{2pt}
@@ -47,8 +66,8 @@ the fact, this problem being hard, it is made easy because of the environment
 where the action of driving happens. There are a set of rules about how 
 to drive, and where to drive in order to avoid potential accidents resulting 
 in collisions with other vehicles, persons or objects. In other words, the 
-environment dynamic and risky but, it is less chaotic and more well defined 
-than others, which becomes more suited for the development artificial 
+environment is dynamic and risky but, it is less chaotic and more well defined 
+than others, which becomes more suited for the development artificial of
 intelligence approaches for training vehicles to be autonomous.
 
 To our knowledge, there has not been a lot of development of similar
@@ -74,7 +93,7 @@ a intelligent agent, therefore reducing the time and costs that would be
 required in the acquisition and training of a real personal companion. 
 
 In short with this project we aim to explore techniques to train the agent to 
-access the hardness the environment and all the obstacles present in order
+assess the hardness of the environment and all the obstacles present in order
 to determine a suitable footpath and guide in some way the person through it.
 In our research, we intent to start with more accessible environments 
 progressing to more challenging ones as we go along. We will also focus 
@@ -89,10 +108,10 @@ lot of work has been made on this topic both at a theoretical/algorithmic
 \cite{MARL:overview,DBLP:journals/corr/abs-1911-10635}
 and practical level. There exist many implementations and approaches that 
 rely on this method for solving problems that involve complex environments 
-where an agent placed in the system must the optimal way to interact with 
-it in order to obtain the reward the maximizes the objectives that the agent 
+where an agent placed in the system must choose the optimal way to interact with 
+it in order to obtain the reward that maximizes the objectives that the agent 
 is set to solve. For instance, there is a lot of research on the autonomous 
-driving problem that use on reinforcement learning techniques that we plan 
+driving problem that use reinforcement learning techniques that we plan 
 to build upon in the scope of this project. 
 
 In terms of autonomous driving we found a lot of material that ranges from 
@@ -101,7 +120,7 @@ train an agent that will later be put in the same scenario but in real
 life, to strategies using known algorithms \cite{vieira2021openworld} to 
 detect and classify entities that may appear as obstacles for a vehicle.
 Although these resources provide us with a lot of tools, unfortunately they 
-do not fit entirely for our goals. As we need not to simulate car lanes and 
+do not fit entirely our goals. As we need not to simulate car lanes and 
 other car traffic signals but sidewalks and pedestrian related signals, and 
 the majority of obstacles will be most certainly people. However, these 
 resources will become a benchmark for the development of our project.
@@ -121,7 +140,7 @@ development of this project:
 \begin{itemize}
   \item Penn-Fudan Pedestrian Detection and Segmentation: 
     \url{https://www.cis.upenn.edu/~jshi/ped_html/}
-  \item Flying Guide Dg: 
+  \item Flying Guide Dog: 
     \url{https://drive.google.com/drive/folders/1UFcr-b4Ci5BsA72TZWJ77n-
     J3aneli6l}
   \item Pedestrian Datasets: \url{https://www.cognata.com/pedestrian-datasets/}
@@ -146,7 +165,7 @@ The design of the experiments to be carried out will be based on the
 detection of entities, namely people, traffic lights, crossings, 
 stairs, etc... . The objective of the agent is to present a behavior 
 appropriate to the environment presented to him. The evaluation of this 
-behavior will be made by successful metrics, to develop, which will serve 
+behavior will be made by success metrics, to develop, which will serve 
 to inform us about the parameters that we must change, in order to obtain 
 the expected performance, that is, that can navigate a dynamic environment 
 safeguarding the physical integrity of the agent.
@@ -156,11 +175,11 @@ experiments to train/test our agent in multiple environments, since its
 really hard to model such complex system using the data available to us. 
 One of the alternatives is to provide the agent with 2D images and through 
 reinforcement learning the agent would select the regions on that image that 
-would provide a viable path avoiding colisions with objects. A more advanced 
+would provide a viable path avoiding collisions with objects. A more advanced 
 and realistic way would be to design 3D virtual environments and test the 
-agent on those. Both options at the moment show promisse, and perhaps 
+agent on those. Both options at the moment show promise, and perhaps 
 there might be even more possibilities to explore.
-We are still exploring more on this and we expect reach 
+We are still exploring more on this and we expect to reach 
 conclusions anytime soon.
 
 \printbibliography
