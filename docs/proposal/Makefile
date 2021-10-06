@@ -17,4 +17,4 @@ all-clean: clean
 
 clean:
 	@echo "Cleaning..."
-	@rm -f !(*.{tex,bib,pdf})
+	@rm -f *.{aux,bbl,bcf,blg,log,xml,toc}
