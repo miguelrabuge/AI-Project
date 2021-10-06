@@ -1,12 +1,13 @@
 \documentclass[letterpaper,10pt]{article}
 
+\usepackage[width=185mm,top=10mm,bottom=25mm]{geometry}
+
 \usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex} 
 \addbibresource{references.bib} 
 
 \usepackage[utf8]{inputenc}
+\usepackage[parfill]{parskip}
 \usepackage{url}
-\usepackage[width=185mm,top=10mm,bottom=25mm]{geometry}
-
 
 \title{
   \textbf{Artificial Guide Dogs} \\\vspace{2pt}
@@ -49,7 +50,7 @@ in collisions with other vehicles, persons or objects. In other words, the
 environment dynamic and risky but, it is less chaotic and more well defined 
 than others, which becomes more suited for the development artificial 
 intelligence approaches for training vehicles to be autonomous.
-\\\\
+
 To our knowledge, there has not been a lot of development of similar
 techniques for pedestrians, namely the ones that show some form of 
 disability that could put them in danger if not accompanied by some form 
@@ -63,7 +64,7 @@ worry only about walking itself, but also other obstacles with a more
 unpredictable moving patterns. Therefore, the environment is often so chaotic 
 that traveling by foot requires assistance and makes the problem less 
 approachable from an artificial intelligence standpoint.
-\\\\
+
 Since the problem of autonomous mobility for disabled pedestrians is not
 particularly developed, and the only way such mobility can be achieved is
 with the help of some form of companion, (like for instance a guide dog
@@ -71,7 +72,7 @@ which requires a lot of training in order to successfully guide people),
 our idea is to use some form of reinforcement learning technique and train 
 a intelligent agent, therefore reducing the time and costs that would be 
 required in the acquisition and training of a real personal companion. 
-\\\\
+
 In short with this project we aim to explore techniques to train the agent to 
 access the hardness the environment and all the obstacles present in order
 to determine a suitable footpath and guide in some way the person through it.
@@ -93,7 +94,7 @@ it in order to obtain the reward the maximizes the objectives that the agent
 is set to solve. For instance, there is a lot of research on the autonomous 
 driving problem that use on reinforcement learning techniques that we plan 
 to build upon in the scope of this project. 
-\\\\
+
 In terms of autonomous driving we found a lot of material that ranges from 
 simulators \cite{duckietown-library} that rely on a virtual environment to 
 train an agent that will later be put in the same scenario but in real 
@@ -104,7 +105,7 @@ do not fit entirely for our goals. As we need not to simulate car lanes and
 other car traffic signals but sidewalks and pedestrian related signals, and 
 the majority of obstacles will be most certainly people. However, these 
 resources will become a benchmark for the development of our project.
-\\\\
+
 More related with our project proposal we found that some work as already
 been made not only in the recognition of pedestrians \cite{dataflair_2021}
 but also using drones as footpath finders \cite{tan2021flying}, 
@@ -119,8 +120,8 @@ illustrates ones that are going to potentially be used by us during the
 development of this project:
 \begin{itemize}
   \item Penn-Fudan Pedestrian Detection and Segmentation: 
-    \url{https://www.cis.upenn.edu/~jshi/ped_html/} 
-  \item Flying Guide Dog - Dataset: 
+    \url{https://www.cis.upenn.edu/~jshi/ped_html/}
+  \item Flying Guide Dg: 
     \url{https://drive.google.com/drive/folders/1UFcr-b4Ci5BsA72TZWJ77n-
     J3aneli6l}
   \item Pedestrian Datasets: \url{https://www.cognata.com/pedestrian-datasets/}
@@ -133,7 +134,7 @@ In terms of frameworks we have a few options that we plan to explore:
   \item DuckieTown: \url{https://github.com/duckietown} 
   \item Flying-Guide-Dogs: 
     \url{https://github.com/EckoTan0804/flying-guide-dog}
-  \item Python + ML/ML/RL Libraries: 
+  \item Python + ML/RL Libraries: 
     \url{https://data-flair.training/blogs/pedestrian-detection-python-opencv/}
 \end{itemize}
 As for algorithms we are still discussing and reading about the topic and we
@@ -149,17 +150,20 @@ behavior will be made by successful metrics, to develop, which will serve
 to inform us about the parameters that we must change, in order to obtain 
 the expected performance, that is, that can navigate a dynamic environment 
 safeguarding the physical integrity of the agent.
-\\\\
+
 In terms of the experimental setup, we thought about how would we implement
 experiments to train/test our agent in multiple environments, since its 
 really hard to model such complex system using the data available to us. 
 One of the alternatives is to provide the agent with 2D images and through 
 reinforcement learning the agent would select the regions on that image that 
 would provide a viable path avoiding colisions with objects. A more advanced 
-and realistic way would be to design virtual environments and test the agent
-on those. Both options at the moment show promisse, and perhaps there might 
-be even more. We are still exploring more on this and we expect reach 
+and realistic way would be to design 3D virtual environments and test the 
+agent on those. Both options at the moment show promisse, and perhaps 
+there might be even more possibilities to explore.
+We are still exploring more on this and we expect reach 
 conclusions anytime soon.
+
 \printbibliography
+
 \end{document}
 
