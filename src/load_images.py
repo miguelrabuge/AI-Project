@@ -108,8 +108,8 @@ def load_images(train_dir_path, val_dir_path):
 
 
 if __name__ == '__main__':
-    train_dir_path = "/Users/gabriel/Documents/UC/4-ano/1-semestre/IA/PVTL_dataset/train"
-    val_dir_path = "/Users/gabriel/Documents/UC/4-ano/1-semestre/IA/PVTL_dataset/val"
+    train_dir_path = "../data/PVTL_dataset/train"
+    val_dir_path = "../data/PVTL_dataset/val"
 
     X_train, y_train, X_val, y_val = load_images(train_dir_path, val_dir_path)
 
