@@ -42,14 +42,21 @@ def load_images(train_dir_path, val_dir_path):
 
     return np.array(X_train), y_train, np.array(X_val), y_val
 
-
-
-if __name__ == '__main__':
+def main(verbose=False):
+    # Paths
     DIR = "processed" 
     train_dir_path = f"../data/{DIR}/train"
     val_dir_path = f"../data/{DIR}/val"
 
+    # Loading Images
     X_train, y_train, X_val, y_val = load_images(train_dir_path, val_dir_path)
-    print("n_elements of: X_train - {},  y_train - {}".format(len(X_train), len(y_train)))
-    print("n_elements of: X_val - {},  y_val - {}".format(len(X_val), len(y_val)))
-    print(y_train)
+    
+    if verbose:
+        print("n_elements of: X_train - {},  y_train - {}".format(len(X_train), len(y_train)))
+        print("n_elements of: X_val - {},  y_val - {}".format(len(X_val), len(y_val)))
+        print(y_train)
+    
+    return X_train, y_train, X_val, y_val 
+
+if __name__ == '__main__':
+    main(verbose=True)

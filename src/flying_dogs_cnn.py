@@ -1,6 +1,8 @@
-from tensorflow.keras import models, layers, losses
+# Based on https://github.com/EckoTan0804/flying-guide-dog/blob/main/models/traffic_light_classification/simple_cnn.py
+
+import loader
+from tensorflow.keras import models, layers, losses, optimizers
 from tensorflow.keras.wrappers.scikit_learn import KerasClassifier
-from load_images import load_images
 
 input_size = (224, 224, 3)
 
@@ -23,23 +25,21 @@ def flying_dogs_cnn():
         model.add(layers.Dropout(0.25))
         model.add(layers.Dense(64, activation='relu'))
         model.add(layers.Dropout(0.25))
-        model.add(layers.Dense(5, activation='relu'))
-        model.add(layers.Dropout(0.25))
+        model.add(layers.Dense(5, activation='softmax'))
+        # model.add(layers.Dropout(0.25))
 
-        model.compile(optimizer='adam', loss='mse', metrics=['accuracy'])
+        model.compile(loss=losses.categorical_crossentropy, optimizer=optimizers.Adam(), metrics=['accuracy'])
         return model
 
     return KerasClassifier(flying_dogs_model)
 
 if __name__ == "__main__":
+    EPOCHS = 10
     # Loading Data
-    DIR = "processed" 
-    train_dir_path = f"../data/{DIR}/train"
-    val_dir_path = f"../data/{DIR}/val"
-    X_train, y_train, X_val, y_val = load_images(train_dir_path, val_dir_path)
+    X_train, y_train, X_val, y_val = loader.main()
 
     # Classify
     cnn = flying_dogs_cnn()
-    cnn.fit(X_train, y_train)
+    cnn.fit(X_train, y_train, epochs=EPOCHS)
     cnn.score(X_val, y_val)
 
