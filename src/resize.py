@@ -50,6 +50,8 @@ if __name__ == "__main__":
     # Getting Maximum sizes
     widths, heights = get_sizes(total_images)
     w_max, h_max = max(widths), max(heights)
+    
+    w_max, h_max = 224, 224 # Hardcoding
 
     # Resizing and Padding Images to maximum Width and Height, maintaining picture ratio
     resize_and_pad_images(total_images, w_max, h_max)
