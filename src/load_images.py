@@ -11,7 +11,7 @@ def load_images(train_dir_path, val_dir_path):
 
     dir_paths = [train_dir_path, val_dir_path]
     
-    labels_dict = {'vehicle-red': 0, 'vehicle-green': 1, 'pedestrian-red': 2, 'pedestrian-green': 3}
+    labels_dict = {'vehicle-red': 0, 'vehicle-green': 1, 'pedestrian-red': 2, 'pedestrian-green': 3, 'others': 4}
     
     lbs = list(labels_dict.keys())
 
