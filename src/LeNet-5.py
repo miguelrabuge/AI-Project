@@ -1,3 +1,5 @@
+# Based on https://medium.com/@mgazar/lenet-5-in-9-lines-of-code-using-keras-ac99294c8086
+
 import loader
 from tensorflow import random
 from tensorflow.keras import models, layers, losses, optimizers
