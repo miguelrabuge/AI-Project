@@ -1,9 +1,11 @@
 # Based on https://towardsdatascience.com/step-by-step-vgg16-implementation-in-keras-for-beginners-a833c686ae6c
 
 import loader
+from tensorflow import random
 from tensorflow.keras import models, layers, losses, optimizers
 from tensorflow.keras.wrappers.scikit_learn import KerasClassifier
 
+random.set_seed(42)
 input_size = (224, 224, 3)
 
 def VGG16_cnn():

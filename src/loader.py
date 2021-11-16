@@ -2,6 +2,7 @@ import numpy as np
 from PIL import Image
 from os import listdir
 from os.path import isfile
+from tensorflow.keras.utils import to_categorical
 
 def load_images(train_dir_path, val_dir_path):
 
@@ -40,7 +41,8 @@ def load_images(train_dir_path, val_dir_path):
                     X_val.append(temp)
                 y_val = y_val + [labels_dict[l] for _ in range(len(image_paths))]
 
-    return np.array(X_train), y_train, np.array(X_val), y_val
+    return np.array(X_train), to_categorical(np.array(y_train).reshape(-1, 1)), \
+            np.array(X_val), to_categorical(np.array(y_val).reshape(-1, 1))
 
 def main(verbose=False):
     # Paths

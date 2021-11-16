@@ -1,9 +1,11 @@
 # Based on https://towardsdatascience.com/implementing-alexnet-cnn-architecture-using-tensorflow-2-0-and-keras-2113e090ad98
 
 import loader
+from tensorflow import random
 from tensorflow.keras import models, layers, losses, optimizers
 from tensorflow.keras.wrappers.scikit_learn import KerasClassifier
 
+random.set_seed(42)
 input_size = (224, 224, 3)
 
 def AlexNet_cnn():
