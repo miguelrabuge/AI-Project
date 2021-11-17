@@ -1,0 +1,152 @@
+\documentclass[journal, a4paper]{IEEEtran}
+
+\usepackage[left=2cm,right=1.5cm,top=1.5cm,bottom=1.5cm]{geometry}
+\usepackage{graphicx} 
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage[parfill]{parskip}
+\usepackage{parskip}
+\usepackage{url}    
+
+\usepackage{hyperref}
+\usepackage{authblk}
+
+\hypersetup{
+  colorlinks = true,
+  linkcolor = blue,
+  filecolor = magenta,      
+  urlcolor = cyan,
+  pdftitle = {Pedestrian Semaphore Classification - An Active Learning Approach}
+  pdfauthor = {Miguel Rabuge, Gabriel Fernandes, Pedro Rodrigues},
+  pdfsubject = {Final Paper},
+  pdfkeywords = {Artificial Intelligence, Machine Learning, Active Learning, 
+  Autonomous Pedestrian Module, Image Classification},
+  pdfproducer = {Latex with hyperref},
+  pdfcreator = {pdflatex},
+}
+
+\begin{document}
+
+\title{Pedestrian Semaphore Classification \\ An Active Learning Approach}
+\author[1]{Gabriel Fernandes}
+\author[2]{Miguel Rabuge}
+\author[3]{Pedro Rodrigues}
+
+\affil[1,2,3]{Department of Informatics Engineering, University of Coimbra, Portugal}
+{
+  \makeatletter
+  \renewcommand\AB@affilsepx{: \protect\Affilfont}
+  \makeatother
+
+  \affil[1]{gabrielf@student.dei.uc.pt}
+  \affil[2]{rabuge@student.dei.uc.pt}
+  \affil[3]{pedror@stundent.dei.uc.pt}
+}
+
+\maketitle
+
+\begin{abstract}
+The environments, which pedestrians with some form of disability circulate are 
+often extremely risky, more so than for "healthy" pedestrians. Not only the 
+environments are dynamic, and full of uncertainty but, since an impaired 
+individual is not able to record quality sensory information his ability to 
+navigate through the environment, without endangering himself, is compromised.
+The most common solution for this problem is some form of personal companion, 
+e.g “a guide dog”, that helps the individual circulate. Training these kinds of 
+companions is often slow and expensive... We propose an “Active Learning”(AL) 
+approach for training a classifier that could be integrated in an artificial 
+personal companion module (...)
+\end{abstract}
+
+\begin{keywords}
+Artificial Intelligence, Machine Learning, Active Learning, Autonomous Pedestrian Module, 
+Image Classification.
+\end{keywords}
+
+\section{Introduction}
+Nowadays, there is a lot of effort being put into solving the problem of 
+autonomous driving, not only because of research but also because of the security 
+wand comfort that autonomous vehicles may bring to our lives. Despite the fact of 
+this problem being hard, it is made easy because of the environment
+where the action of driving happens. There is a set of rules about how to drive, 
+and where to drive to avoid potential accidents resulting in collisions with 
+other vehicles, persons or objects. In other words, the environment is dynamic 
+and risky, but it is less chaotic and more well-defined than others, which becomes 
+more suited for the development of artificial intelligence approaches for training 
+vehicles to be autonomous. 
+
+To our knowledge, there has not been a lot of development of similar techniques 
+for pedestrians, namely the ones that show some form of disability that could put 
+them in danger if not accompanied by some form of personal companion. The 
+pedestrian environment, unlike the one where vehicles circulate, does not have a 
+set of rules describing the way people should walk nor a place where the action of 
+walking takes place. The pedestrian may be forced to walk on a sidewalk, a 
+(lighted) crosswalk, in rugged terrain or even in the car lane if no sidewalk 
+exists. Additionally, the objects that a pedestrian needs to avoid obviously 
+increases since a person needs not to worry only about walking itself, but also 
+other obstacles with more unpredictable moving patterns. Therefore, the 
+environment is often so chaotic that travelling by foot requires assistance and 
+makes the problem less approachable from an artificial intelligence standpoint.
+
+Since the problem of autonomous mobility for disabled pedestrians is not 
+particularly developed, and the only way such mobility can be achieved is with 
+the help of some form of companion, (like for instance a guide dog which requires 
+a lot of training to successfully guide people), our contribution is to advance 
+inside this field in terms of pedestrian semaphore detection and classification 
+for a crosswalk-taking decision. The choice of an active learning (AL) approach 
+is justified by the lack of datasets for this specific task. Therefore, AL is the 
+perfect methodology to apply for this niche, but yet significant, application, 
+since it can extract better accuracy from the models with fewer data.
+
+In short, with this project we aim to explore an alternative methodology for 
+this problem, by comparing the State-of-the-Art methods performance with our own, 
+using various metrics. Our main objective is to build a classifier that should be 
+fast to classify and highly accurate, without the need for large amounts of data.
+
+\section{State Of The Art}
+
+In the past few years, the State of the Art of image classifiers tends to revolve 
+around Convolutional Neural Networks (CNN), due to the large amounts of data and 
+the processing power currently available, which have turned out to be highly 
+rewarding when both conditions are true.
+
+In terms of pedestrian assistive agents, there has not been a lot of research 
+related to it since a ``Pedestrian Assistant'' is a relatively recent topic. 
+The most recent scientific paper that we found for it, uses a standard 
+State-of-the-Art CNN for the pedestrian traffic lights detection and 
+classification module of their project, trained by using a newly introduced 
+dataset “Pedestrian and Vehicle Traffic Lights” (PVTL), which is a pre-processed 
+subset of Mapillary’s vast image dataset.
+
+Regarding Active Learning, this approach aims to iteratively find the most 
+informative data points to train the model, through the use of entropy, etc. 
+This methodology reveals highly rewarding, generating good models with low 
+data usage.
+
+\section{Materials: Datasets and Frameworks}
+
+In terms of data sets we found only one good resource
+online for our objective:
+\begin{itemize}
+  \item ``Pedestrian and Vehicle Traffic Lights''(PVTL): \url{https://drive.google.com/drive/folders/1UFcr-b4Ci5BsA72TZWJ77n-J3aneli6l}
+\end{itemize}
+
+In terms of Frameworks we have a few options that we
+plan to explore:
+\begin{itemize}
+  \item  JCLAL: \url{https://github.com/ogreyesp/JCLAL}
+  \item Libact: \url{https://github.com/ntucllab/libact}
+  \item modAL: \url{https://github.com/modAL-python/modAL}
+\end{itemize}
+
+In terms of Algorithms, we plan on building an Active Learning related one, 
+and we will be using State of the Art methods for mutual comparison.
+
+\section{Experimental Setup}
+
+In terms of Experimental Setup, we want to measure the performance of the 
+algorithms (State of the Art vs Active Learning approach) utilizing various 
+metrics, on detecting and classifying pedestrian traffic light
+
+\end{document}

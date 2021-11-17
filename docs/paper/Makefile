@@ -1,5 +1,5 @@
 PDF_VIEWER := evince
-MAIN_TEX := proposal
+MAIN_TEX := paper
 
 .PHONY := all pdf clean
 all: pdf
