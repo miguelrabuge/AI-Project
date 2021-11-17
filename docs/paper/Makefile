@@ -9,4 +9,5 @@ pdf:
 
 clean:
 	@latexmk -c -C
+	@rm -f $(MAIN_TEX).run.xml
 
