@@ -1,5 +1,5 @@
 PDF_VIEWER := evince
-MAIN_TEX := proposal
+MAIN_TEX := paper
 
 .PHONY := all pdf clean
 all: pdf
@@ -9,5 +9,5 @@ pdf:
 
 clean:
 	@latexmk -c -C
-	@rm -f $(MAIN_TEX).run.xml $(MAIN_TEX).bbl
+	@rm -f $(MAIN_TEX).run.xml
 
