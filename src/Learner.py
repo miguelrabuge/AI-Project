@@ -8,10 +8,9 @@ from modAL.uncertainty import uncertainty_sampling
 from tensorflow.keras.wrappers.scikit_learn import KerasClassifier
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-np.random.seed(42)
 
 class Learner():
-    def __init__(self, X_pool, y_pool, X_val, y_val, n_initial, estimator: KerasClassifier, strategy=uncertainty_sampling):
+    def __init__(self, X_pool, y_pool, X_val, y_val, n_initial, estimator: KerasClassifier, epochs=5, strategy=uncertainty_sampling):
         def get_initial_data(X, y, n):
             # Randomly choose initial training indexes
             initial_idxs = np.random.choice(range(len(X)), size=n, replace=False)
@@ -26,10 +25,10 @@ class Learner():
         self.strategy = strategy
         self.X_pool, self.y_pool, X_init, y_init = get_initial_data(X_pool, y_pool, n_initial)
         self.X_val, self.y_val = X_val, y_val
-        self.learner = ActiveLearner(estimator=estimator, query_strategy=strategy, X_training=X_init, y_training=y_init)
+        self.learner = ActiveLearner(estimator=estimator, query_strategy=strategy, X_training=X_init, y_training=y_init, epochs=epochs)
 
-    def learn(self, n_queries, n_instances, epochs=5, plot=False):
-        scores = []
+    def learn(self, n_queries, n_instances, epochs=5):
+        trains, tests = [], []
         try:
             for i in range(n_queries):
                 # Query instances
@@ -42,20 +41,16 @@ class Learner():
                 # Teach Model the query instances
                 self.learner.teach(X=x, y=y, only_new=False, epochs=epochs)
 
-                scores.append(self.learner.score(self.X_val, self.y_val))
+                # Add Train and Test Scores
+                trains.append(round(self.learner.score(self.learner.X_training, self.learner.y_training), 3))
+                tests.append(round(self.learner.score(self.X_val, self.y_val), 3))
+                
                 # Remove Queried Instances from the X,y Pools
                 self.X_pool = np.delete(self.X_pool, idxs, axis=0)
                 self.y_pool = np.delete(self.y_pool, idxs, axis=0)
         except:
             print(f"Active Learning Loop Ended: Not enough datapoints (has {self.X_pool.shape[0]} needs {n_instances}) for another query loop")
-        if plot:
-            plt.plot(range(len(scores)), scores, )
-            plt.title("Scores")
-            plt.xlabel("Query Number")
-            plt.ylabel("Accuracy")
-            plt.legend(["Validation"])
-            plt.show()
-        return self
+        return trains, tests
 
     def predict(self, X):
         return self.learner.predict(X)
@@ -63,12 +58,14 @@ class Learner():
     def score(self, X, y):
         return self.learner.score(X, y)
 
-if __name__ == "__main__":
+def main(estimator, epochs, n_init=600, n_queries=11, query_size=60):
     # Getting Data
     X_train, y_train, X_val, y_val = loader.main()
     
     # Defining Active Learner Model
-    learner = Learner(X_train, y_train, X_val, y_val, 600, estimator=AlexNet_cnn())
-    learner.learn(11, 60, epochs=10, plot=True)
+    learner = Learner(X_train, y_train, X_val, y_val, n_init, estimator=estimator, epochs=epochs)
+    return learner.learn(n_queries, query_size, epochs=epochs)
 
-    print(f"Final Validation Score: {learner.score(X_val, y_val)}")
+if __name__ == "__main__":
+    np.random.seed(42)
+    main(AlexNet_cnn(), 25)

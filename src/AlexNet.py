@@ -5,7 +5,6 @@ from tensorflow import random
 from tensorflow.keras import models, layers, losses, optimizers
 from tensorflow.keras.wrappers.scikit_learn import KerasClassifier
 
-random.set_seed(42)
 input_size = (224, 224, 3)
 
 def AlexNet_cnn():
@@ -41,12 +40,17 @@ def AlexNet_cnn():
 
     return KerasClassifier(AlexNet_model)
 
-if __name__ == "__main__":
-    EPOCHS = 10
+def main(epochs):
+    '''AlexNet'''
     # Loading Data
     X_train, y_train, X_val, y_val = loader.main()
 
     # Classify
     cnn = AlexNet_cnn()
-    cnn.fit(X_train, y_train, epochs=EPOCHS)
-    cnn.score(X_val, y_val)
+    cnn.fit(X_train, y_train, epochs=epochs)
+    return cnn.score(X_train, y_train), cnn.score(X_val, y_val)
+
+
+if __name__ == "__main__":
+    random.set_seed(42)
+    main(25)

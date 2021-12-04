@@ -5,7 +5,6 @@ from tensorflow import random
 from tensorflow.keras import models, layers, losses, optimizers
 from tensorflow.keras.wrappers.scikit_learn import KerasClassifier
 
-random.set_seed(42)
 input_size = (224, 224, 3)
 
 def LeNet5_cnn():
@@ -28,12 +27,16 @@ def LeNet5_cnn():
 
     return KerasClassifier(LeNet5_model)
 
-if __name__ == "__main__":
-    EPOCHS = 20
+def main(epochs):
+    '''LeNet5'''
     # Load Data
     X_train, y_train, X_val, y_val = loader.main()
 
     # Classifier
     cnn = LeNet5_cnn()
-    cnn.fit(X_train, y_train, epochs=EPOCHS)
-    cnn.score(X_val, y_val)
+    cnn.fit(X_train, y_train, epochs=epochs)
+    return cnn.score(X_train, y_train), cnn.score(X_val, y_val)
+
+if __name__ == "__main__":
+    random.set_seed(42)
+    main(25)
