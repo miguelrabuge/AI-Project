@@ -30,9 +30,10 @@ def al_seed_loop(estimator, epochs, n_seeds=30):
 
 if __name__ == "__main__":
     # Static Parameters
-    EPOCHS = 1
+    EPOCHS = 25
     FILE = "run_results.txt"
     cl_mean_f = lambda l: [round(sum(sublist) / len(sublist), 3) for sublist in zip(*l)]
+
     # Argument Parser
     parser = argparse.ArgumentParser()
     
