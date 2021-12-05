@@ -15,7 +15,7 @@ def seed_loop(func, epochs, n_seeds=30):
         acc_train, acc_test = func(epochs)
         trains.append(round(acc_train, 3))
         tests.append(round(acc_test, 3))
-    return sum(trains) / len(trains), sum(tests) / len(tests)
+    return round(sum(trains) / len(trains), 3), round(sum(tests) / len(tests), 3)
 
 def al_seed_loop(estimator, epochs, n_seeds=30):
     trains, tests = [], []

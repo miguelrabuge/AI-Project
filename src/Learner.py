@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from AlexNet import AlexNet_cnn
 from modAL import ActiveLearner
-from modAL.uncertainty import uncertainty_sampling
+from modAL.uncertainty import uncertainty_sampling, entropy_sampling, margin_sampling
 from tensorflow.keras.wrappers.scikit_learn import KerasClassifier
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
