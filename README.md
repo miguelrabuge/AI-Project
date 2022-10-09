@@ -1,6 +1,5 @@
 # IA Project
-Project for the Artificial Intelligence subject
-- Pedestrian Semaphore Classification - An Active Learning Approach
+Project for the Artificial Intelligence subject: Pedestrian Semaphore Classification - An Active Learning Approach
 
 ## Team
 - [Gabriel Fernandes](https://github.com/gabrielmendesfernandes)
