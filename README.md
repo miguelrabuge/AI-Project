@@ -1,4 +1,4 @@
-# IA Project
+# AI Project
 Project for the Artificial Intelligence subject: Pedestrian Semaphore Classification - An Active Learning Approach
 
 ## Team
